@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>FizzBuzz Game</h1>
+        
+        <!-- Tabbed Interface for Game Explanation and Code Explanation - Expandable/Collapsible -->
+        <div class="game-explanation">
+            <div class="explanation-header" id="explanationToggle">
+                <span>🎮 Game Guide & Code Explanation</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="explanation-wrapper" id="explanationWrapper">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="how-to-play">🎮 How to Play</button>
+                    <button class="tab-button" data-tab="code-explanation">💻 Code Explanation</button>
+                </div>
+            
+            <!-- How to Play Tab Content -->
+            <div class="tab-content active" id="how-to-play">
+                <p><strong>Mission:</strong> Count from 1 to your chosen number, but with a twist!</p>
+                <div class="rules">
+                    <div class="rule-item">
+                        <span class="rule-number">1</span>
+                        <span>If a number is divisible by <strong class="fizz-color">3</strong> → Say <strong class="fizz-color">"Fizz"</strong></span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">2</span>
+                        <span>If a number is divisible by <strong class="buzz-color">5</strong> → Say <strong class="buzz-color">"Buzz"</strong></span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">3</span>
+                        <span>If a number is divisible by <strong>BOTH 3 AND 5</strong> → Say <strong class="fizzbuzz-color">"FizzBuzz"</strong></span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">4</span>
+                        <span>Otherwise, just display the number!</span>
+                    </div>
+                </div>
+                <p class="example"><strong>Example:</strong> 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, <strong class="fizzbuzz-color">FizzBuzz</strong>...</p>
+            </div>
+            
+            <!-- Code Explanation Tab Content -->
+            <div class="tab-content" id="code-explanation">
+                <div class="code-section">
+                    <h3>🔧 Custom Modal Instead of prompt()</h3>
+                    <p>Instead of using the browser's native <code>prompt()</code> modal (which blocks the UI and looks outdated), I use an HTML input field with <code>type="number"</code> which automatically provides:</p>
+                    <ul>
+                        <li>Up/down arrow buttons (spinner controls) to increment/decrement the number</li>
+                        <li>Built-in number validation</li>
+                        <li>Keyboard support (arrow keys can also change the value)</li>
+                        <li>Mobile-friendly numeric keypad on touch devices</li>
+                    </ul>
+                </div>
+                
+                <div class="code-section">
+                    <h3>🔄 Iteration (For Loop)</h3>
+                    <p>The <code>for</code> loop iterates (repeats) through each number from 1 to the user's input.</p>
+                    <p><strong>Structure:</strong> <code>for (initialization; condition; increment)</code></p>
+                    <ul>
+                        <li><code>let i = 1</code>: Start counting from 1 (initialization)</li>
+                        <li><code>i &lt;= answer</code>: Continue as long as i is less than or equal to the answer (condition)</li>
+                        <li><code>i++</code>: Increment i by 1 after each iteration (increment)</li>
+                    </ul>
+                    <p><strong>Why start at 1?</strong> FizzBuzz traditionally starts from 1, not 0, because it's more intuitive for users and counting typically starts at 1.</p>
+                </div>
+                
+                <div class="code-section">
+                    <h3>📊 Modulus Operator (%)</h3>
+                    <p>The modulus operator returns the <strong>remainder</strong> after division.</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li><code>6 % 3 = 0</code> (6 divided by 3 equals 2 with remainder 0)</li>
+                        <li><code>7 % 3 = 1</code> (7 divided by 3 equals 2 with remainder 1)</li>
+                        <li><code>10 % 5 = 0</code> (10 divided by 5 equals 2 with remainder 0)</li>
+                    </ul>
+                    <p>When remainder is <code>0</code>, it means the number is <strong>evenly divisible</strong>! So <code>i % 3 === 0</code> means "is i divisible by 3?"</p>
+                </div>
+                
+                <div class="code-section">
+                    <h3>⚖️ Strict Equality (===)</h3>
+                    <p>I use <code>===</code> (strict equality) instead of <code>==</code> (loose equality) because:</p>
+                    <ul>
+                        <li><code>===</code> checks both <strong>value AND type</strong> (no type coercion)</li>
+                        <li><code>==</code> can cause unexpected behavior due to type conversion</li>
+                        <li><code>===</code> is more predictable and is considered best practice</li>
+                    </ul>
+                    <p><strong>Example:</strong> <code>0 === 0</code> is <code>true</code>, but <code>0 == "0"</code> is also <code>true</code> (unwanted type conversion). With <code>===</code>, <code>0 === "0"</code> is <code>false</code> (correct - different types).</p>
+                </div>
+                
+                <div class="code-section">
+                    <h3>🎯 Display Results: Two Approaches Compared</h3>
+                    
+                    <h4>📝 Approach 1: String Concatenation (Teacher's Method)</h4>
+                    <div class="code-example">
+                        <pre><code>let text = "";
+for (let i = 1; i &lt;= answer; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        text += "&lt;span style='color:#ff0000'&gt; FizzBuzz, i = " + i + "&lt;/span&gt;" + "&lt;br /&gt;";
+    }
+    // ... more conditions
+}
+document.getElementById('results').innerHTML = text;</code></pre>
+                    </div>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <strong>✅ Pros:</strong>
+                            <ul>
+                                <li>Simple and straightforward</li>
+                                <li>Easy to understand for beginners</li>
+                                <li>Can build HTML quickly in one string</li>
+                                <li>Less code for simple cases</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <strong>❌ Cons:</strong>
+                            <ul>
+                                <li>Security risk: <code>innerHTML</code> can execute malicious code (XSS vulnerability)</li>
+                                <li>Harder to maintain and style</li>
+                                <li>Inline styles mixed with logic</li>
+                                <li>Less flexible for dynamic interactions</li>
+                                <li>Performance: Rebuilds entire HTML string each time</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>🏗️ Approach 2: DOM Manipulation (What I Use)</h4>
+                    <div class="code-example">
+                        <pre><code>for (let i = 1; i &lt;= answer; i++) {
+    const resultItem = document.createElement('div');
+    resultItem.className = 'result-item';
+    
+    if (i % 3 === 0 && i % 5 === 0) {
+        resultItem.textContent = 'FizzBuzz';
+        resultItem.classList.add('fizzbuzz');
+    }
+    // ... more conditions
+    
+    resultsDiv.appendChild(resultItem);
+}</code></pre>
+                    </div>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <strong>✅ Pros:</strong>
+                            <ul>
+                                <li><strong>More secure:</strong> No XSS vulnerabilities (uses <code>textContent</code>)</li>
+                                <li><strong>Better separation:</strong> CSS classes separate styling from logic</li>
+                                <li><strong>More maintainable:</strong> Easier to update and modify</li>
+                                <li><strong>Better performance:</strong> Only updates specific elements</li>
+                                <li><strong>More flexible:</strong> Easy to add event listeners, animations, etc.</li>
+                                <li><strong>Modern approach:</strong> Industry best practice</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <strong>❌ Cons:</strong>
+                            <ul>
+                                <li>Slightly more code</li>
+                                <li>Requires understanding of DOM API</li>
+                                <li>More verbose for simple cases</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <h4>📊 Key Differences:</h4>
+                        <table>
+                            <tr>
+                                <th>Feature</th>
+                                <th>String Concatenation</th>
+                                <th>DOM Manipulation (My Method)</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Method</strong></td>
+                                <td><code>text += "&lt;span&gt;..."</code></td>
+                                <td><code>createElement()</code> + <code>appendChild()</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Styling</strong></td>
+                                <td>Inline styles: <code>style='color:#ff0000'</code></td>
+                                <td>CSS classes: <code>classList.add('fizzbuzz')</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Output</strong></td>
+                                <td>Shows "FizzBuzz, i = 15"</td>
+                                <td>Shows just "FizzBuzz"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Line Breaks</strong></td>
+                                <td>Uses <code>&lt;br /&gt;</code> tags</td>
+                                <td>Uses separate <code>&lt;div&gt;</code> elements in grid</td>
+                            </tr>
+                            <tr>
+                                <td><strong>HTML Building</strong></td>
+                                <td>Builds HTML strings</td>
+                                <td>Creates DOM elements directly</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Security</strong></td>
+                                <td>⚠️ XSS risk with <code>innerHTML</code></td>
+                                <td>✅ Safe with <code>textContent</code></td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p class="summary"><strong>💡 Summary:</strong> I use DOM manipulation because it's more secure, maintainable, and follows modern web development best practices. While string concatenation is simpler, DOM manipulation provides better long-term code quality and user safety.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <label for="numberInput">Enter the number you would like to FizzBuzz up to (max 10,000):</label>
+            <!-- 
+                Custom Modal Input: Instead of using browser's native prompt() modal,
+                I use an HTML input field with type="number" which automatically provides:
+                - Up/down arrow buttons (spinner controls) on the right side to increment/decrement
+                - Built-in number validation
+                - Keyboard arrow key support to change values
+                - Mobile-friendly numeric keypad on touch devices
+                - Maximum limit of 10,000 to prevent performance issues
+            -->
+            <div class="input-wrapper">
+                <input type="number" id="numberInput" min="1" max="10000" placeholder="Enter a number (max 10,000)">
+                <button id="clearBtn" class="clear-button" title="Clear input and results">✕</button>
+            </div>
+            <button id="submitBtn">Generate FizzBuzz</button>
+        </div>
+        <div id="results" class="results"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

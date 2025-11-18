@@ -1,0 +1,92 @@
+# Environment variables and sensitive files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+*.env
+.env.*
+
+# API keys and secrets
+secrets.json
+config.json
+credentials.json
+*.key
+*.pem
+*.p12
+*.pfx
+
+# History and cache files
+.history/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Node modules (if you add npm packages later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build and dist folders
+dist/
+build/
+*.min.js
+*.min.css
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.cache
+
+# Personal notes and drafts
+notes.txt
+TODO.txt
+draft.*
+personal.*
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Optional: Uncomment if you use these
+# .htaccess
+# web.config
+

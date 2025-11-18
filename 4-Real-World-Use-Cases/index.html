@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-World Use Cases - Modulo Applications</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">🌍</span><span> Real-World Use Cases</span></h1>
+        <p class="subtitle">Practical applications of modulo operator in E-commerce, Social Media, Gaming, and System Administration</p>
+        
+        <div class="demo-section">
+            <h2>🛒 E-commerce: Special Offers & Rotating Products</h2>
+            <p>Show special offers every Nth customer using <code>customerId % interval</code></p>
+            <div class="input-group">
+                <label>Customer ID:</label>
+                <input type="number" id="customerId" min="1" max="1000" placeholder="Enter customer ID">
+                <label>Offer interval:</label>
+                <input type="number" id="offerInterval" min="2" max="20" placeholder="e.g., 5" value="5">
+                <button id="offerBtn">Check Offer Eligibility</button>
+            </div>
+            <div id="offerResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>📱 Social Media: Feed Algorithms & Notification Batching</h2>
+            <p>Prioritize notifications using pattern matching</p>
+            <div class="input-group">
+                <label>Notification ID:</label>
+                <input type="number" id="notificationId" min="1" max="100" placeholder="Enter notification ID">
+                <button id="notificationBtn">Check Priority</button>
+            </div>
+            <div id="notificationResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎮 Gaming: Spawn Rates & Event Scheduling</h2>
+            <p>Control game mechanics using modulo patterns</p>
+            <div class="input-group">
+                <label>Game Day:</label>
+                <input type="number" id="gameDay" min="1" max="30" placeholder="Enter day number">
+                <button id="gameBtn">Check Events</button>
+            </div>
+            <div id="gameResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>⚙️ System Administration: Backup Scheduling & Log Rotation</h2>
+            <p>Schedule system tasks using modulo</p>
+            <div class="input-group">
+                <label>Day of month:</label>
+                <input type="number" id="backupDay" min="1" max="31" placeholder="Enter day">
+                <label>Backup interval:</label>
+                <input type="number" id="backupInterval" min="1" max="7" placeholder="e.g., 3" value="3">
+                <button id="backupBtn">Check Schedule</button>
+            </div>
+            <div id="backupResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🔄 Complete System Simulation</h2>
+            <p>See all use cases working together in a simulated environment</p>
+            <button id="simulateBtn">Run Complete Simulation</button>
+            <div id="simulationResult" class="result-box"></div>
+        </div>
+
+        <div class="code-explanation">
+            <h3>💡 Real-World Examples</h3>
+            <div class="code-block">
+                <strong>E-commerce Special Offers:</strong>
+                <pre><code>if (customerId % 5 === 0) {
+    showSpecialOffer(); // Every 5th customer
+}</code></pre>
+            </div>
+            <div class="code-block">
+                <strong>Social Media Priority:</strong>
+                <pre><code>const priority = notificationId % 3;
+// High, Medium, Low priority rotation</code></pre>
+            </div>
+            <div class="code-block">
+                <strong>Gaming Events:</strong>
+                <pre><code>if (gameDay % 7 === 0) {
+    triggerWeeklyEvent(); // Every 7 days
+}</code></pre>
+            </div>
+            <div class="code-block">
+                <strong>System Backups:</strong>
+                <pre><code>if (day % backupInterval === 0) {
+    runBackup(); // Scheduled backups
+}</code></pre>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

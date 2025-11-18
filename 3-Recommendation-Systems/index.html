@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation Systems & Similar Items - Modulo Applications</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">🎬</span><span> Recommendation Systems & Similar Items</span></h1>
+        <p class="subtitle">Demonstrating pattern-matching logic used by Netflix, YouTube, and similar platforms</p>
+        
+        <div class="demo-section">
+            <h2>1. A/B Testing - User Group Assignment</h2>
+            <p>Divide users into test groups using <code>user_id % 2</code> for A/B splits</p>
+            <div class="input-group">
+                <label>User ID:</label>
+                <input type="number" id="userId" min="1" max="1000" placeholder="Enter user ID">
+                <button id="abTestBtn">Assign to Group</button>
+            </div>
+            <div id="abTestResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>2. Load Balancing - Server Distribution</h2>
+            <p>Distribute requests across servers using <code>request_id % server_count</code></p>
+            <div class="input-group">
+                <label>Request ID:</label>
+                <input type="number" id="requestId" min="1" max="1000" placeholder="Enter request ID">
+                <label>Number of servers:</label>
+                <input type="number" id="loadServers" min="2" max="10" placeholder="e.g., 5" value="5">
+                <button id="loadBalanceBtn">Assign Server</button>
+            </div>
+            <div id="loadBalanceResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>3. Content Similarity - Pattern Matching</h2>
+            <p>Find similar content based on ID patterns (like recommendation algorithms)</p>
+            <div class="input-group">
+                <label>Content ID:</label>
+                <input type="number" id="contentId" min="1" max="100" placeholder="Enter content ID">
+                <button id="similarityBtn">Find Similar Content</button>
+            </div>
+            <div id="similarityResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>4. User Clustering - Behavior Patterns</h2>
+            <p>Group users with similar behavior patterns using modulo</p>
+            <div class="input-group">
+                <label>User ID:</label>
+                <input type="number" id="clusterUserId" min="1" max="100" placeholder="Enter user ID">
+                <button id="clusterBtn">Find User Cluster</button>
+            </div>
+            <div id="clusterResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>5. Netflix/YouTube Style Simulation</h2>
+            <p>See how 20 users are distributed across groups and servers</p>
+            <button id="simulateBtn">Run Platform Simulation</button>
+            <div id="simulationResult" class="result-box"></div>
+        </div>
+
+        <div class="code-explanation">
+            <h3>💡 How It Works</h3>
+            <div class="code-block">
+                <strong>A/B Testing:</strong>
+                <pre><code>const group = userId % 2;
+// Returns 0 (Group A) or 1 (Group B)</code></pre>
+            </div>
+            <div class="code-block">
+                <strong>Load Balancing:</strong>
+                <pre><code>const serverId = requestId % serverCount;
+// Distributes requests evenly across servers</code></pre>
+            </div>
+            <div class="code-block">
+                <strong>Content Similarity:</strong>
+                <pre><code>const similarityGroup = contentId % 5;
+// Groups similar content together</code></pre>
+            </div>
+            <div class="code-block">
+                <strong>User Clustering:</strong>
+                <pre><code>const cluster = userId % 4;
+// Groups users with similar patterns</code></pre>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

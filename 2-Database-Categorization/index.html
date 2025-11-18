@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Categorization & Filtering - Modulo Applications</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">🗄️</span><span> Database Categorization & Filtering</span></h1>
+        <p class="subtitle">Demonstrating modulo operator for batch processing, data partitioning, and category classification</p>
+        
+        <div class="demo-section">
+            <h2>1. Batch Processing (Every Nth Record)</h2>
+            <p>Process items in groups using <code>recordId % batchSize</code></p>
+            <div class="input-group">
+                <label>Total records:</label>
+                <input type="number" id="totalRecords" min="1" max="100" placeholder="e.g., 50" value="50">
+                <label>Batch size:</label>
+                <input type="number" id="batchSize" min="1" max="20" placeholder="e.g., 5" value="5">
+                <button id="batchBtn">Process Batches</button>
+            </div>
+            <div id="batchResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>2. Data Partitioning Across Servers</h2>
+            <p>Distribute data across multiple servers using <code>recordId % serverCount</code></p>
+            <div class="input-group">
+                <label>Record ID:</label>
+                <input type="number" id="recordId" min="1" max="1000" placeholder="e.g., 123">
+                <label>Number of servers:</label>
+                <input type="number" id="serverCount" min="2" max="10" placeholder="e.g., 3" value="3">
+                <button id="partitionBtn">Assign Server</button>
+            </div>
+            <div id="partitionResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>3. Category Classification</h2>
+            <p>Group items by patterns using modulo for categorization</p>
+            <div class="input-group">
+                <label>Product ID:</label>
+                <input type="number" id="productId" min="1" max="100" placeholder="Enter product ID">
+                <button id="categorizeBtn">Categorize Product</button>
+            </div>
+            <div id="categoryResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>4. Live Database Simulation</h2>
+            <p>See how 20 products are categorized and distributed</p>
+            <button id="simulateBtn">Run Simulation</button>
+            <div id="simulationResult" class="result-box"></div>
+        </div>
+
+        <div class="code-explanation">
+            <h3>💡 How It Works</h3>
+            <div class="code-block">
+                <strong>Batch Processing:</strong>
+                <pre><code>if (recordId % batchSize === 0) {
+    // Process this record in a new batch
+}</code></pre>
+            </div>
+            <div class="code-block">
+                <strong>Data Partitioning:</strong>
+                <pre><code>const serverId = recordId % serverCount;
+// Assigns record to server 0, 1, 2, etc.</code></pre>
+            </div>
+            <div class="code-block">
+                <strong>Category Classification:</strong>
+                <pre><code>const category = productId % 3;
+// Groups products into 3 categories</code></pre>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

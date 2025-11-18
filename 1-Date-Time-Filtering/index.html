@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date & Time Filtering - Modulo Applications</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">📅</span><span> Date & Time Filtering</span></h1>
+        <p class="subtitle">Demonstrating modulo operator for day calculations, scheduling, and time-based categorization</p>
+        
+        <div class="demo-section">
+            <h2>1. Day of Week Calculation</h2>
+            <p>Using <code>dayNumber % 7</code> to determine weekday patterns</p>
+            <div class="input-group">
+                <label>Enter a day number (1-365):</label>
+                <input type="number" id="dayInput" min="1" max="365" placeholder="Enter day number">
+                <button id="calcDayBtn">Calculate Day of Week</button>
+            </div>
+            <div id="dayResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>2. Recurring Event Scheduler</h2>
+            <p>Find events that occur every Nth day using modulo</p>
+            <div class="input-group">
+                <label>Show events every:</label>
+                <input type="number" id="intervalInput" min="1" max="30" placeholder="e.g., 3" value="3">
+                <span>days</span>
+                <button id="scheduleBtn">Generate Schedule</button>
+            </div>
+            <div id="scheduleResult" class="result-box"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>3. Time-Based Categorization</h2>
+            <p>Group items by time intervals using modulo</p>
+            <div class="input-group">
+                <label>Current hour (0-23):</label>
+                <input type="number" id="hourInput" min="0" max="23" placeholder="Enter hour">
+                <button id="categorizeBtn">Categorize</button>
+            </div>
+            <div id="categoryResult" class="result-box"></div>
+        </div>
+
+        <div class="code-explanation">
+            <h3>💡 How It Works</h3>
+            <div class="code-block">
+                <strong>Day of Week:</strong>
+                <pre><code>const dayOfWeek = dayNumber % 7;
+// Returns 0-6 (0 = Sunday, 1 = Monday, etc.)</code></pre>
+            </div>
+            <div class="code-block">
+                <strong>Recurring Events:</strong>
+                <pre><code>if (dayNumber % interval === 0) {
+    // Event occurs on this day
+}</code></pre>
+            </div>
+            <div class="code-block">
+                <strong>Time Categories:</strong>
+                <pre><code>const category = hour % 4;
+// Groups hours into 4 categories</code></pre>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
